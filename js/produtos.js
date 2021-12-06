@@ -18,8 +18,30 @@ const postProduto = (produto) => {
     fetch(url, options);
 };
 
+const deleteProduct = (id) => {
+    const options = {
+        method: 'DELETE',
+        headers: {
+            'content-type': 'application/json'
+        },
+    };
+    fetch(`${url}/${id}`, options);
+}
+
+const putProduct = (produto) => {
+    const id = produto.id;
+    const options = {
+        method: 'PUT',
+        body: JSON.stringify(produto),
+        headers: {
+        },
+    };
+    fetch(`${url}/${id}`, options);
+}
+
 export {
     getProdutos,
-    postProduto
+    postProduto,
+    deleteProduct
 
 };
